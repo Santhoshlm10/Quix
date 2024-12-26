@@ -1,0 +1,17 @@
+<div class="card-container">
+    <p class="question-title">Question</p>
+    <p class="question-content">When is the christmas celebrated in the united states of america and i am sadf a sdf sadf sad f asdf dsaf adsf sa df</p>
+
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="options-list" [(ngModel)]="favoriteSeason">
+        @for (season of seasons; track season) {
+        <mat-radio-button class="option" [value]="season">{{season}}</mat-radio-button>
+        }
+    </mat-radio-group>
+
+    <div class="submit-btn-container">
+        <button class="submit-btn"  mat-flat-button>Submit Answer</button>
+    </div>
+</div>
+<div class="score-container">
+    <p>Your Score</p>
+</div>

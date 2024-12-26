@@ -1,0 +1,12 @@
+.main{
+    justify-content: center;
+    display: flex;
+    margin-top: 1.25rem;
+}
+.content{
+    align-items: center;
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

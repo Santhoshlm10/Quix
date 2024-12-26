@@ -1,0 +1,38 @@
+.card-container {
+    width: 620px;
+    min-width: 600px;
+    max-width: 640px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px 0px 5px 10px;
+}
+
+.question-title {
+    color: gray;
+}
+
+.question-content {
+    color: black;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins";
+}
+.submit-btn-container{
+    justify-content: center;
+    margin: 20px;
+    display: flex;
+}
+.submit-btn{
+    width: 220px;
+    font-family: "Poppins" !important;
+    background-color: #FFBF0B !important;
+    color: black !important;
+}
+.score-container{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
