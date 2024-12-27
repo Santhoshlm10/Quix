@@ -8,9 +8,6 @@
 - Interactive quizzes across multiple categories (Movies, Comics, Sports, Entertainment, etc.)
 - Real-time questions fetched from the OpenTDB API
 - Material UI components for a modern, clean design
-- Timer functionality for each quiz session
-- Scoring and results display at the end of each quiz
-- Ability to choose different difficulty levels
 
 ## Technologies Used
 
@@ -49,12 +46,6 @@ Make sure you have the following installed:
 4. **Access the App:**
    Open your browser and go to [http://localhost:4200](http://localhost:4200) to start using the app.
 
-## Usage
-
-- Upon launching the app, choose a quiz category from the available list.
-- Select the difficulty level of the quiz.
-- Answer the questions within the given time limit.
-- View your score and the correct answers at the end of the quiz.
 
 ## API Integration
 
