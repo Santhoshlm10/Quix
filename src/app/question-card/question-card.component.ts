@@ -65,6 +65,7 @@ export class QuestionCardComponent {
   }
 
   async handleSubmit() {
+    if(!this.selectedOption) return;
     if(this.selectedOption === this.correctOption){
       const button_id = this.correctOption + "-button"
       const button = document.getElementById(button_id);
