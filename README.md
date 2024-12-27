@@ -1,59 +1,77 @@
-# Quix
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+# Quix - Quiz Application
 
-## Development server
+**Quix** is a dynamic quiz application that pulls content from the [Open Trivia Database (OpenTDB)](https://opentdb.com/) API, offering questions across various categories such as movies, comics, sports, and entertainment. The app is built using **Angular** and styled with **Material UI** to provide an intuitive and responsive user experience.
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+- Interactive quizzes across multiple categories (Movies, Comics, Sports, Entertainment, etc.)
+- Real-time questions fetched from the OpenTDB API
+- Material UI components for a modern, clean design
+- Timer functionality for each quiz session
+- Scoring and results display at the end of each quiz
+- Ability to choose different difficulty levels
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Technologies Used
 
-## Code scaffolding
+- **Frontend:** Angular
+- **UI Framework:** Angular Material
+- **API:** OpenTDB API for quiz content
+- **Other Libraries:**  Angular Services for API handling
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Installation
 
-```bash
-ng generate component component-name
-```
+### Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (v12 or higher)
+- [Angular CLI](https://angular.io/cli)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Steps to Set Up Locally
 
-```bash
-ng generate --help
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Santhoshlm10/Quix.git
+   ```
 
-## Building
+2. **Install Dependencies:**
+   Navigate to the project directory and install the necessary dependencies:
+   ```bash
+   cd Quix
+   npm install
+   ```
 
-To build the project run:
+3. **Run the Development Server:**
+   After the installation is complete, you can start the Angular development server:
+   ```bash
+   ng serve
+   ```
 
-```bash
-ng build
-```
+4. **Access the App:**
+   Open your browser and go to [http://localhost:4200](http://localhost:4200) to start using the app.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Usage
 
-## Running unit tests
+- Upon launching the app, choose a quiz category from the available list.
+- Select the difficulty level of the quiz.
+- Answer the questions within the given time limit.
+- View your score and the correct answers at the end of the quiz.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## API Integration
 
-```bash
-ng test
-```
+This app utilizes the [Open Trivia Database API](https://opentdb.com/) to fetch quiz questions in real-time. The questions are dynamically loaded based on the selected category and difficulty.
 
-## Running end-to-end tests
+For more details on the API endpoints and available question categories, visit the [OpenTDB documentation](https://opentdb.com/api_config.php).
 
-For end-to-end (e2e) testing, run:
+## Contributing
 
-```bash
-ng e2e
-```
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Make your changes and commit them (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Open a pull request
 
-## Additional Resources
+## License
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
