@@ -34,6 +34,9 @@ export class QuestionCardComponent {
 
   selectedOption: string | undefined;
 
+  correctAnswer: number = 0;
+  wrongAnswer: number = 0;
+
   constructor(private http: HttpClient) { }
 
 
@@ -69,6 +72,7 @@ export class QuestionCardComponent {
         button.style.backgroundColor = "green"
         button.style.color = "white"
       }
+      this.correctAnswer += 1
       await this.waitFor(1)
     }else{
       let correct_btn_id = this.correctOption + "-button"
@@ -83,6 +87,7 @@ export class QuestionCardComponent {
         selected_btn.style.backgroundColor = "red"
         selected_btn.style.color = "white"
       }
+      this.wrongAnswer += 1
       await this.waitFor(1.5)
 
     }
