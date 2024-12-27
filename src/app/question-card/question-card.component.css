@@ -19,20 +19,40 @@
     display: flex;
     flex-direction: column;
     font-family: "Poppins";
+    border: none;
+    border-radius: 0px;
+    gap: 10px;
+    width: 600px;
 }
-.submit-btn-container{
+
+.submit-btn-container {
     justify-content: center;
     margin: 20px;
     display: flex;
 }
-.submit-btn{
+
+.submit-btn {
     width: 220px;
     font-family: "Poppins" !important;
     background-color: #FFBF0B !important;
     color: black !important;
 }
-.score-container{
-    display: flex;
-    justify-content: center;
-    padding: 5px;
+
+.togglebutton {
+    font-family: "Poppins";
+    border: 1px solid lightgray !important;
+}
+.togglebutton-wrong{
+    background-color: red;
+    color: white;
+    font-family: "Poppins";
+    border: 1px solid lightgray !important;
+    padding: 10px;
+}
+.togglebutton-correct{
+    background-color: green;
+    color: white;
+    font-family: "Poppins";
+    border: 1px solid lightgray !important;
+    padding: 10px;
 }

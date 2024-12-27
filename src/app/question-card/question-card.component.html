@@ -1,17 +1,15 @@
 <div class="card-container">
     <p class="question-title">Question</p>
-    <p class="question-content">When is the christmas celebrated in the united states of america and i am sadf a sdf sadf sad f asdf dsaf adsf sa df</p>
+    <p class="question-content">{{question}}</p>
+    <p class="question-title">Pick your answer</p>
 
-    <mat-radio-group aria-labelledby="example-radio-group-label" class="options-list" [(ngModel)]="favoriteSeason">
-        @for (season of seasons; track season) {
-        <mat-radio-button class="option" [value]="season">{{season}}</mat-radio-button>
+    <mat-button-toggle-group class="options-list">
+        @for (option of optionsList; track option){
+            <mat-button-toggle id={{option}} value={{option}} class="togglebutton" (click)="handleOnSelect(option)">{{option}}</mat-button-toggle>
         }
-    </mat-radio-group>
+      </mat-button-toggle-group>
 
     <div class="submit-btn-container">
-        <button class="submit-btn"  mat-flat-button>Submit Answer</button>
+        <button class="submit-btn"  mat-flat-button (click)="handleSubmit()">Submit Answer</button>
     </div>
-</div>
-<div class="score-container">
-    <p>Your Score</p>
 </div>
