@@ -22,7 +22,7 @@
     border: none;
     border-radius: 0px;
     gap: 10px;
-    width: 600px;
+    width: 98%;
 }
 
 .submit-btn-container {
@@ -42,27 +42,11 @@
     font-family: "Poppins";
     border: 1px solid lightgray !important;
 }
-.togglebutton-wrong{
-    background-color: red;
-    color: white;
-    font-family: "Poppins";
-    border: 1px solid lightgray !important;
-    padding: 10px;
-}
-.togglebutton-correct{
-    background-color: green;
-    color: white;
-    font-family: "Poppins";
-    border: 1px solid lightgray !important;
-    padding: 10px;
-}
 
 
 @media (max-width: 600px) {
     .card-container{
-        width: 500px;
-        min-width: 500px;
-        max-width: 500px;
+        width: 200px;
     }
   }
 
