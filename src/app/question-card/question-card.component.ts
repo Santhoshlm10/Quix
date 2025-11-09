@@ -7,24 +7,30 @@ import { API_BASE_URL } from '../../api';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 interface QuizResult {
-  type: string; 
-  difficulty: string; 
-  category: string; 
-  question: string; 
-  correct_answer: string; 
+  type: string;
+  difficulty: string;
+  category: string;
+  question: string;
+  correct_answer: string;
   incorrect_answers: string[];
 }
 
 interface QuizResponse {
-  response_code: number; 
+  response_code: number;
   results: QuizResult[];
 }
 
 @Component({
   selector: 'app-question-card',
-  imports: [HttpClientModule, MatRadioModule, FormsModule, MatButtonModule, MatButtonToggleModule],
+  imports: [
+    HttpClientModule,
+    MatRadioModule,
+    FormsModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+  ],
   templateUrl: './question-card.component.html',
-  styleUrl: './question-card.component.css'
+  styleUrl: './question-card.component.css',
 })
 export class QuestionCardComponent {
   question: string | undefined;
@@ -33,23 +39,27 @@ export class QuestionCardComponent {
   correctOption: string | undefined;
 
   selectedOption: string | undefined;
+  isLoading: boolean = true;
 
   correctAnswer: number = 0;
   wrongAnswer: number = 0;
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   rehydrateQuestion() {
+    this.isLoading = true;
     this.selectedOption = undefined;
     this.correctOption = undefined;
     this.http.get<QuizResponse>(API_BASE_URL).subscribe((data) => {
-      this.question = this.decodeHtmlEntities(data?.results[0]?.question) ?? ""
-      this.correctOption = data?.results[0]?.correct_answer
-      this.optionsList = this.shuffleArray([...data?.results[0]?.incorrect_answers, data?.results[0]?.correct_answer])
-    })
+      this.question = this.decodeHtmlEntities(data?.results[0]?.question) ?? '';
+      this.correctOption = data?.results[0]?.correct_answer;
+      this.optionsList = this.shuffleArray([
+        ...data?.results[0]?.incorrect_answers,
+        data?.results[0]?.correct_answer,
+      ]);
+      this.isLoading = false;
+    });
   }
-
 
   shuffleArray(array: string[]) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -59,58 +69,54 @@ export class QuestionCardComponent {
     return array.map((item) => this.decodeHtmlEntities(item));
   }
 
-
   ngOnInit() {
-    this.rehydrateQuestion()
+    this.rehydrateQuestion();
   }
 
   async handleSubmit() {
-    if(!this.selectedOption) return;
-    if(this.selectedOption === this.correctOption){
-      const button_id = this.correctOption + "-button"
+    if (!this.selectedOption) return;
+    if (this.selectedOption === this.correctOption) {
+      const button_id = this.correctOption + '-button';
       const button = document.getElementById(button_id);
       if (button) {
-        button.style.backgroundColor = "green"
-        button.style.color = "white"
+        button.style.backgroundColor = 'green';
+        button.style.color = 'white';
       }
-      this.correctAnswer += 1
-      await this.waitFor(1)
-    }else{
-      let correct_btn_id = this.correctOption + "-button"
-      let selected_btn_id = this.selectedOption + '-button'
+      this.correctAnswer += 1;
+      await this.waitFor(1);
+    } else {
+      let correct_btn_id = this.correctOption + '-button';
+      let selected_btn_id = this.selectedOption + '-button';
 
       let correct_btn = document.getElementById(correct_btn_id);
       let selected_btn = document.getElementById(selected_btn_id);
 
-      if(correct_btn && selected_btn){
-        correct_btn.style.backgroundColor = "green"
-        correct_btn.style.color = "white"
-        selected_btn.style.backgroundColor = "red"
-        selected_btn.style.color = "white"
+      if (correct_btn && selected_btn) {
+        correct_btn.style.backgroundColor = 'green';
+        correct_btn.style.color = 'white';
+        selected_btn.style.backgroundColor = 'red';
+        selected_btn.style.color = 'white';
       }
-      this.wrongAnswer += 1
-      await this.waitFor(1.5)
-
+      this.wrongAnswer += 1;
     }
-    this.rehydrateQuestion()
+    this.rehydrateQuestion();
   }
-  
-  
 
   handleOnSelect(data: string) {
-    this.selectedOption = data
+    this.selectedOption = data;
   }
 
-  async waitFor(seconds:number){
+  async waitFor(seconds: number) {
     return await new Promise((resolve) => {
       setTimeout(() => {
-        resolve(true)
-      },seconds * 1000)
-    })
+        resolve(true);
+      }, seconds * 1000);
+    });
   }
 
   decodeHtmlEntities(str: string): string {
-    return str.replace(/&quot;/g, '"')
+    return str
+      .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'")
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')

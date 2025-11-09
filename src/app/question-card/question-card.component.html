@@ -1,28 +1,42 @@
 <div class="card-container">
+  <div class="progress-bar-container" [hidden]="!isLoading">
+    <div class="progress-bar">
+      <div class="progress-bar-value"></div>
+    </div>
+  </div>
+  <div
+    [class]="!isLoading ? 'question-container' : 'question-container-blurred'"
+  >
     <p class="question-title">Question</p>
-    <p class="question-content">{{question}}</p>
+    <p class="question-content">{{ question }}</p>
     <p class="question-title">Pick your answer</p>
 
     <mat-button-toggle-group class="options-list">
-        @for (option of optionsList; track option){
-        <mat-button-toggle id={{option}} value={{option}} class="togglebutton"
-            (click)="handleOnSelect(option)">{{option}}</mat-button-toggle>
-        }
+      @for (option of optionsList; track option){
+      <mat-button-toggle
+        id="{{ option }}"
+        value="{{ option }}"
+        class="togglebutton"
+        (click)="handleOnSelect(option)"
+        >{{ option }}</mat-button-toggle
+      >
+      }
     </mat-button-toggle-group>
 
     <div class="submit-btn-container">
-        <button class="submit-btn" mat-flat-button (click)="handleSubmit()">Submit Answer</button>
+      <button class="submit-btn" mat-flat-button (click)="handleSubmit()">
+        Submit Answer
+      </button>
     </div>
+  </div>
 </div>
 <div class="score-container">
-    <div>
-        <span class="emoji">👍</span> {{correctAnswer}}
-    </div>
-    <div>
-        <span  class="emoji">👎</span>
-        {{wrongAnswer}}
-    </div>
+  <div><span class="emoji">👍</span> {{ correctAnswer }}</div>
+  <div>
+    <span class="emoji">👎</span>
+    {{ wrongAnswer }}
+  </div>
 </div>
 <div class="githublink">
-    <a target="_blank" href="https://github.com/Santhoshlm10/Quix">Github</a>
+  <a target="_blank" href="https://github.com/Santhoshlm10/Quix">Github</a>
 </div>
